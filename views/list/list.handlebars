@@ -11,7 +11,7 @@
       <div class="input-field col m6 center-align">
         <input type="text" name="title" placeholder="Show Title">
         <input type="text" name="genre" placeholder="Genre">
-        <input type="text" name="seasons" placeholder=" # of Seasons">
+        <input type="text" name="seasons" placeholder="# of Seasons">
         <input class="btn waves-effect waves-light blue" type="submit" value="Add Show">
       </div>
     </div>
@@ -26,18 +26,16 @@
       <li class="collection-item col m4">{{title}}: <br> {{genre}} <br> {{seasons}} Seasons to watch <br>
         <div class="center">
           <a class="waves-effect waves-light btn blue center" href="/list/{{_id}}/delete">Remove Show</a> <br>
-          <a class="waves-effect waves-light btn blue center" href="#">Update</a>
+          <a class="waves-effect waves-light btn blue center update" href="/list/{{_id}}/edit">Edit</a>
         </div>
       </li>
 
       {{else}}
 
-
-
       <li class="collection-item col m4">{{title}}: <br> {{genre}} <br>
         <div class="center col m2">
          <a class="waves-effect waves-light btn blue center" href="/list/{{_id}}/delete">Remove Show</a> <br>
-         <a class="waves-effect waves-light btn blue center" href="#">Update</a>
+         <a class="waves-effect waves-light btn blue center update" href="/{{_id}}/edit">Edit</a>
         </div>
       </li>
       {{/if}}

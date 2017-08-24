@@ -23,9 +23,13 @@ const ListController = {                       //lists documents in items collec
   },
   edit: function(req, res){
     const itemId = req.params.id;
-    Item.findOneAndUpdate('_id').then(function(){
-
-    });
+    const title = req.body.title;
+    const genre = req.body.genre;
+    const seasons = req.body.seasons;
+    res.render('edit/edit', {title: title, genre: genre, seasons: seasons});
+    // Item.findByIdAndUpdate(itemId, {$set: {title: req.body.title, genre: req.body.genre, seasons: req.body.seasons}}).then(function(){
+    //     res.redirect('/list');
+    // });
   }
 };
 

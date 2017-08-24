@@ -12,8 +12,10 @@ const listRouter = express.Router();
 homeRouter.get('/', HomeController.home);
 
 listRouter.get('/', ListController.list);       //gives list of items
+listRouter.get('/:id/delete', ListController.delete);   //deletes item from collection in db
+listRouter.get('/:id/edit', ListController.edit);
+listRouter.post('/:id', ListController.edit);
 listRouter.post('/', ListController.add);       //adds new item to list
-listRouter.get('/:id/delete', ListController.delete);   //deletes item from collection in db 
 
 app.use('/', homeRouter);
 app.use('/list', listRouter);
