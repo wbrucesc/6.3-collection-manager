@@ -1,11 +1,12 @@
-<div class="header">
-  <h3 class="center-align">What show should I binge watch next?</h3>
+<div class="header center-align">
+  <h3 >What show should I binge watch next?</h3>
+  <a href="/list/add" class="waves-effect waves-light btn blue">Add Show</a>
   <hr>
 </div>
 
 
 
-<div class="container col m12 center-align">
+<!-- <div class="container col m12 center-align">
   <form class='col m8 center' action="/list" method="POST">
     <div class="row">
       <div class="input-field col m6 center-align">
@@ -16,14 +17,17 @@
       </div>
     </div>
   </form>
-</div>
+</div> -->
 
-<div class="container col m12">
+<div id="showcase" class="container col m12">
   <ul class="collection with-header">
     <li class="collection-header col m12 center"><h4>Shows</h4></li>
     {{#each items}}
       {{#if seasons}}
-      <li class="collection-item col m4">{{title}}: <br> {{genre}} <br> {{seasons}} Seasons to watch <br>
+      <li class="collection-item col m4">{{title}}: <br>
+         {{genre}} <br>
+          {{seasons}} Seasons to watch <br>
+
         <div class="center">
           <a class="waves-effect waves-light btn blue center" href="/list/{{_id}}/delete">Remove Show</a> <br>
           <a class="waves-effect waves-light btn blue center update" href="/list/{{_id}}/edit">Edit</a>
@@ -32,7 +36,9 @@
 
       {{else}}
 
-      <li class="collection-item col m4">{{title}}: <br> {{genre}} <br>
+      <li class="collection-item col m4">{{title}}: <br>
+         {{genre}} <br>
+
         <div class="center col m2">
          <a class="waves-effect waves-light btn blue center" href="/list/{{_id}}/delete">Remove Show</a> <br>
          <a class="waves-effect waves-light btn blue center update" href="/{{_id}}/edit">Edit</a>

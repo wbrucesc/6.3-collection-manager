@@ -1,13 +1,15 @@
-<h1>Edit this show</h1>
+<h1>{{#if _id}}Edit{{else}}Add{{/if}} Show</h1>
+
+
 
 <div class="container col m12 center-align">
-  <form class='col m12 center' action="/{{itemId}}" method="POST">
+  <form class='col m12 center' action="/list/{{_id}}" method="POST">
     <div class="row">
       <div class="input-field col m8 center-align">
         <input type="text" name="title" placeholder="Title" value="{{title}}">
         <input type="text" name="genre" placeholder="Genre" value="{{genre}}">
         <input type="text" name="seasons" placeholder="# of Seasons" value="{{seasons}}">
-        <input class="btn waves-effect waves-light blue" type="submit" value="Update">
+        <input class="btn waves-effect waves-light blue" type="submit" value="{{#if _id}}Edit{{else}}Add{{/if}} Show">
       </div>
     </div>
   </form>

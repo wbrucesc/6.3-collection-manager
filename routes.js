@@ -9,13 +9,18 @@ module.exports = function(app){
 const homeRouter = express.Router();
 const listRouter = express.Router();
 
+//Welcome page router
 homeRouter.get('/', HomeController.home);
 
+//list routers
 listRouter.get('/', ListController.list);       //gives list of items
-listRouter.get('/:id/delete', ListController.delete);   //deletes item from collection in db
-listRouter.get('/:id/edit', ListController.edit);
+listRouter.post('/', ListController.add);       //goes to form if no id when add button clicked
+listRouter.get('/add', ListController.form);
+
 listRouter.post('/:id', ListController.edit);
-listRouter.post('/', ListController.add);       //adds new item to list
+listRouter.get('/:id/edit', ListController.form);   //if id already then takes to edit form
+listRouter.get('/:id/delete', ListController.delete);   //deletes item from collection in db
+       //adds new item to list
 
 app.use('/', homeRouter);
 app.use('/list', listRouter);
